@@ -1,0 +1,37 @@
+plugins {
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android"  // Ensure this is correctly referenced
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.clima"
+    compileSdk = 34  // Or use the latest version
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.example.clima"
+        minSdk = 21  // Ensure these match your Flutter settings or update as needed
+        targetSdk = 34  // Or use the latest version
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
